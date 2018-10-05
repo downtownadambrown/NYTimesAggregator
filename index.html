@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -30,27 +31,27 @@
             <div class="card-body bg-light">
                 <p class="card-text">Search Term:</p>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" class="form-control" id="searchTerm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <p>Number of Records to Retrieve:</p>
                 <div class="input-group mb-3">
                     <select class="custom-select" id="inputGroupSelect01">
                         <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">1 result</option>
+                        <option value="5">5 results</option>
+                        <option value="10">10 results</option>
                     </select>
                 </div>
                 <p class="card-text">Start Year (optional):</p>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="number" class="form-control" id="startYearTerm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <p class="card-text">End Year (optional):</p>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="number" class="form-control" id="endYearTerm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
-                <button type="button" class="btn btn-light"><i class="fas fa-search"></i>&nbsp;Search</button>
-                <button type="button" class="btn btn-light"><i class="far fa-trash-alt"></i>&nbsp;Clear Fields</button>
+                <button type="button" id="searchButton" class="btn btn-light"><i class="fas fa-search"></i>&nbsp;Search</button>
+                <button type="button" id="clearButton" class="btn btn-light"><i class="far fa-trash-alt"></i>&nbsp;Clear Fields</button>
             </div>
         </div>
 
