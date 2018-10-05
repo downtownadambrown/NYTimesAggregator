@@ -15,28 +15,52 @@ $(document).ready(function () {
         const apikey = "610c49e4520a42088f3a9fb96ad7b081";
         const searchTerm = $('#searchTerm').val();
         const numberTerm = $('option:selected').val(); 
-        const startYearTerm = $('#startYearTerm').val();
-        const endYearTerm = $('#endYearTerm').val();
-        console.log(numberTerm);
+        const startYearTerm = $('#startYearTerm').val() + `0101`;
+        const endYearTerm = $('#endYearTerm').val() + `1231`;
 
         var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+        
         url += '?' + $.param({
             'api-key': apikey,
             'q': searchTerm,
             //'fq': numberTerm,
-            'begin_date': "3",
-            'end_date': "4",
-            'page': numberTerm,
+            'begin_date': startYearTerm,
+            'end_date': endYearTerm,
+            'page': 0,
         });
-  /*       $.ajax({
+        $.ajax({
             url: url,
             method: 'GET',
-        }).done(function (result) {
+        }).done(function (r) {
             //This is what will run once we have the data
-            console.log(result);
+            console.log(r);
+            
+            const cardBody = $('#newsFeed');
+            cardBody.html("");
+            console.log(`numberTerm: ${numberTerm}`);
+            for (let i = 0; i < numberTerm; i++){
+                
+                const headline = r.response.docs[i].headline.main;
+                let author = "";
+                try {
+                     author = r.response.docs[i].byline.original;
+                }catch {
+                    console.log('no byline');
+                }
+                
+                const currentArticle = i + 1;
+                console.log(headline, author, i, currentArticle);
+                const htmlOutput = `<div class="card"><div class="card-body">${currentArticle}:&nbsp;<h5 class="card-title">${headline}</h5><p class="card-text">${author}</p></div></div>`;
+                cardBody.append(htmlOutput);
+
+            }
+            
+            
+            
+            
         }).fail(function (err) {
             throw err;
-        }); */
+        }); 
     };
 
     $('#searchButton').on('click', search);
