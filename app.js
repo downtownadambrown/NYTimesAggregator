@@ -47,10 +47,9 @@ $(document).ready(function () {
                 }catch {
                     console.log('no byline');
                 }
-                
                 const currentArticle = i + 1;
                 console.log(headline, author, i, currentArticle);
-                const htmlOutput = `<div class="card"><div class="card-body">${currentArticle}:&nbsp;<h5 class="card-title">${headline}</h5><p class="card-text">${author}</p></div></div>`;
+                const htmlOutput = `<a class="a-custom" href="${r.response.docs[i].web_url}"><div class="card"><div class="card-body"><h5 class="card-title">${currentArticle}:&nbsp;${headline}</h5><p class="card-text">${author}</p></div></div></a>`;
                 cardBody.append(htmlOutput);
 
             }

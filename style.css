@@ -11,3 +11,12 @@ html, body {
   .footer {
     flex-shrink: 0;
   }
+
+.a-custom{
+  color:black;
+}
+
+.a-custom:hover{
+  color:pink;
+  text-decoration:none;
+}
